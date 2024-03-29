@@ -4,15 +4,12 @@
   import GroupsPage from './lib/pages/GroupsPage.svelte';
   import LocationsPage from './lib/pages/LocationsPage.svelte';
   import AdminSettingsPage from './lib/pages/AdminSettingsPage.svelte';
-  import { onMount } from 'svelte';
-  import { ApiService }  from "./services/ApiService"
 
 
   if(Appsettings.Built)
   {
     //Logic for when built by the function app
   };
-
   
   // The selected manager acts as a key select for the pages, ex pages["Users"] instatntiates UsersPage
   let selectedManager = 'Users';
@@ -29,78 +26,6 @@
     "Locations & Access Points" : LocationsPage,
     "Admin Settings" : AdminSettingsPage,
   };
-
-
-  // Users should have a picture property, defaulted to using their initials?
-    let currentUser:any = {}
-
-    let groups:any = {}
-
-
-    let locations = [
-      {
-        // "expanded" : false,
-        "id" : 1,
-        "city" : "Milwaukee",
-        "state" : "WI",
-        "address" : " 777 E Wisconsin Ave",
-        "zip" : "53202",
-        // "associatedGroup" : [groups[0], groups[1]],
-        "accessPoints" : [
-          {
-            "entrance" : "Main Entrance",
-            "group" : groups[0].name,
-          },
-          {
-            "entrance" : "Back Entrance",
-            "group" : groups[2].name,
-          }
-        ], 
-      },
-      {
-        "id" : 2,
-        // "expanded" : false,
-        "city" : "Madison",
-        "state" : "WI",
-        "address" : " 999 N Wesker Ave",
-        "zip" : "86753",
-        // "associatedGroup" : [groups[0], groups[1]],
-        "accessPoints" : [
-          {
-            "entrance" : "Main Entrance",
-            "group" : "Web Applications Team",
-          },
-          {
-            "entrance" : "Back Entrance",
-            "group" : "Maintenance",
-          }
-        ], 
-      },
-      {
-        "id" : 3,
-        // "expanded" : false,
-        "city" : "Hales Corners",
-        "state" : "WI",
-        "address" : " 333 Saint Street",
-        "zip" : "53130",
-        // "associatedGroup" : [groups[0]], 
-        //refer to a specific group's name or if multiple groups, print "Multiple Groups"
-        "accessPoints" : [
-          {
-            "entrance" : "Main Entrance",
-            "group" : "Security",
-          }, //list of Entrance objects, has 1 associateGroup
-        ]
-      }
-    ];
-
-    onMount(async () => {
-      let response = await ApiService.getRequest("GetUsers")
-      currentUser = response?.[0] ?? {}
-
-      response = await ApiService.getRequest("GetGroups")
-      groups = response?.[0] ?? {}
-    })
 
 </script>
 
@@ -124,24 +49,32 @@
     </div>
 
     <div>
-      <p>{currentUser.firstName}</p>
+      <p>Matthew Walloch</p>
     </div>
   </div>
   
   
   <!-- RIGHT MAIN PAGE -->
   <div class="manage">
-      <svelte:component this={pages[selectedManager]} {groups} {locations}/>
+      <svelte:component this={pages[selectedManager]}/>
   </div>
 </main>
 
 <style>
+  .app-main{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    /* height: 100vh;
+    width: 100vw; */
+  }
+  
   .selected-button{
     background-color:black !important;
     color: white;
     border-width: 8px;
     border-style: solid;
-    border-image: linear-gradient(to right, transparent 99.7%, white 75%) 1;
+    border-image: linear-gradient(to right, transparent 99.7%, #f3f3f3 75%) 1;
   }
 
   .menu-options{
@@ -164,4 +97,24 @@
     font-size: large;
     border-radius: 0px;
   }
+
+  .left-menu {
+    position: fixed;
+    height: 100%;
+    width : 25%;
+    display : flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333333;
+  }
+  
+  .manage {
+    min-height: 100vh;
+    margin-left: 25%;
+    width : 75%;
+    background-color: #f3f3f3;
+  }
+
+
 </style>

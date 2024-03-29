@@ -19,13 +19,6 @@ main{
   margin: 0 2vw;
 }
 
-.app-main{
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-  width: 100vw;
-}
 
 a {
   font-weight: 500;
@@ -38,10 +31,10 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  /* display: flex; */
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 h1 {
@@ -114,24 +107,12 @@ button:hover {
 
 
 
-.manage {
-  width : 75%;
-  background-color: #f3f3f3;
-}
-.manage p {
-  color: black;
-}
-
-
-
 /* All pages */
 .column-sizer{
   width: 20%;
 }
 
-.checkbox-spacer{
-  width: 10%;
-}
+
 
 .listed-item:hover{
   background-color: #e6e6e6;;
@@ -258,6 +239,19 @@ button:hover {
 .data-table input{
   color-scheme: light;
 }
+
+
+.checkbox-spacer{
+  width: 10%;
+}
+
+/* .checkbox-spacer input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+} */
 
 
 

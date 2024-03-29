@@ -65,19 +65,19 @@ namespace CertifID
                         ""name"" : ""Web Application Team"",
                         ""department"" : ""Software Development"",
                         ""status"" : ""Active"",
-                        ""obj"" : ""Create and maintain buisness site""
+                        ""objective"" : ""Create and maintain buisness site""
                     },
                     {
                         ""name"" : ""Security Education"",
                         ""department"" : ""Security"",
                         ""status"" : ""Active"",
-                        ""obj"" : ""Train security personel""
+                        ""objective"" : ""Train security personel""
                     },
                     {
                         ""name"" : ""MKE Maintenence"",
                         ""department"" : ""Maintenence"",
                         ""status"" : ""Active"",
-                        ""obj"" : ""Maintain facility functionality and hygiene""
+                        ""objective"" : ""Maintain facility functionality and hygiene""
                     }
                 ]
             ";

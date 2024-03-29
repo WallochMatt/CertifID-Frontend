@@ -3,11 +3,20 @@
     import TableMaker from "../components/EllipsisButton.svelte";
     import ExpandableRow from "../components/ExpandableRow.svelte";
     import ContextMenu from "../components/ContextMenu.svelte";
+    import { onMount } from "svelte";
+    import { ApiService } from "../../services/ApiService";
 
-    export let groups;
-    export let locations;
     export let showModal = false;
 
+    let groups = [];
+    let locations = [];
+    let accessPoints = [];
+
+    onMount( async () => {
+        groups = await ApiService.getGroups();
+        locations = await ApiService.getLocations();
+        accessPoints = await ApiService.getAccessPoints();
+    })
 </script>
 
 <main>
@@ -20,7 +29,7 @@
                 <th class="checkbox-spacer">
                     <input type="checkbox" /> 
                 </th>
-                <th class="column-sizer">Location({locations.length})</th>
+                <th class="column-sizer">Location({locations?.length ?? 0})</th>
                 <th class="column-sizer">Address</th>
                 <th class="column-sizer">Associated Group(s)</th>
                 <th class="column-sizer"></th>

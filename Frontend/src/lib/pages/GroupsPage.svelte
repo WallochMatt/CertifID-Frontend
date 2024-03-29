@@ -1,13 +1,14 @@
 <script>
     import PageHeader from "../components/PageHeader.svelte";
     import ContextMenu from "../components/ContextMenu.svelte";
-  import EllipsisButton from "../components/EllipsisButton.svelte";
-    export let groups;
-    export let showModal = false;
-
-
+    import EllipsisButton from "../components/EllipsisButton.svelte";
+    import { onMount } from "svelte";
+    import { ApiService } from "../../services/ApiService";
     
-
+    export let showModal = false;
+    
+    let groups = [];
+    
     let contextMenuX = 0;
     let contextMenuY = 0;
     let isContextMenuVisible = false;
@@ -20,6 +21,10 @@
         selectedItem = item;
         isContextMenuVisible = true;
     };
+
+    onMount( async () => {
+        groups = await ApiService.getGroups()
+    })
 </script>
 
 <main>
@@ -31,7 +36,7 @@
                 <th class="checkbox-spacer">
                     <input type="checkbox" /> 
                 </th>
-                <th class="column-sizer">Group({groups.length})</th>
+                <th class="column-sizer">Group({groups?.length ?? 0})</th>
                 <th class="column-sizer">Department</th>
                 <th class="column-sizer">Status</th>
                 <th class="column-sizer">Key Objective</th>
@@ -49,7 +54,7 @@
                     <td>{group.name}</td>
                     <td>{group.department}</td>
                     <td>{group.status}</td>
-                    <td>{group.obj}</td>
+                    <td>{group.objective}</td>
                     <td class="final-col">
                         <EllipsisButton />
                     </td>

@@ -16,8 +16,8 @@ namespace CertifID.Models
         [JsonProperty("status")]
         public string Status { get; set; }
 
-        [JsonProperty("obj")]
-        public string Obj {  get; set; }
+        [JsonProperty("objective")]
+        public string Objective {  get; set; }
     }
 
     //public class GroupList

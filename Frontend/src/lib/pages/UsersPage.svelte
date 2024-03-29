@@ -3,32 +3,37 @@
     import TableMaker from "../components/EllipsisButton.svelte";
     import PageHeader from "../components/PageHeader.svelte";
     import ContextMenu from "../components/ContextMenu.svelte";
-  import EllipsisButton from "../components/EllipsisButton.svelte";
-    export let groups;
-    export let locations;
+    import EllipsisButton from "../components/EllipsisButton.svelte";
+    import { ApiService } from "../../services/ApiService";
+    import { onMount } from "svelte";
+    
     export let showModal; 
 
+    let groups = [];
+    let locations = [];
+    let users = [];
+
     // api call? users will become a request -- title, group and location will likely take a numbered key
-    let users = [
-        {
-            "firstName" : "Chris",
-            "lastName" : "Haliga",
-            "email" : "chris.haliga@certif.id",
-            "location" : "Milwaukee, WI",
-            "group" : groups[0].name,
-            "title" : "Software Engineer II",
+    // let users = [
+    //     {
+    //         "firstName" : "Chris",
+    //         "lastName" : "Haliga",
+    //         "email" : "chris.haliga@certif.id",
+    //         "location" : "Milwaukee, WI",
+    //         "group" : groups[0].name,
+    //         "title" : "Software Engineer II",
         
-        },
-        {
-        "firstName" : "Chad",
-        "lastName" : "Gouin",
-        "email" : "chad.gouin@certif.id",
-        "location" : "Hales Corners, WI",
-        "group" : groups[1].name, //The group's title instead
-        "title" : "Security Specialist",
+    //     },
+    //     {
+    //     "firstName" : "Chad",
+    //     "lastName" : "Gouin",
+    //     "email" : "chad.gouin@certif.id",
+    //     "location" : "Hales Corners, WI",
+    //     "group" : groups[1].name, //The group's title instead
+    //     "title" : "Security Specialist",
         
-        }
-    ];
+    //     }
+    // ];
 
     let colors = ["red", "blue", "green", "pink"];
     // ^Placeholder data to be changed with backend
@@ -46,6 +51,12 @@
         isContextMenuVisible = true;
     };
 
+    onMount( async () => {
+        users = await ApiService.getUsers();
+        groups = await ApiService.getGroups()
+        locations = await ApiService.getLocations()
+    })
+
 </script>
 
 
@@ -55,10 +66,10 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th class="checkbox-spacer">
+                <th class="checkbox-spacer custom-input">
                     <input type="checkbox" /> <!--bind to all users? -->
                 </th>
-                <th class="column-sizer">Users({users.length})</th>
+                <th class="column-sizer">Users({users?.length ?? 0})</th>
                 <th class="column-sizer">Location(s)</th>
                 <th class="column-sizer">Group(s)</th>
                 <th class="column-sizer">Title</th>
@@ -82,8 +93,8 @@
                             <p>{user.email}</p>
                         </div>
                     </td>
-                    <td>{user.location}</td>
-                    <td>{user.group}</td>
+                    <td>{locations[user.location]?.locationName()}</td>
+                    <td>{groups[user.group]?.name}</td>
                     <td>{user.title}</td>
                     <td class="final-col">
                         <EllipsisButton />
@@ -118,5 +129,7 @@
         justify-content: center;
         align-items: center;
     }
+
+    
 
 </style>

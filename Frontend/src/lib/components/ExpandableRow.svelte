@@ -1,15 +1,21 @@
-<script>
+<script lang="ts">
+  import { onMount } from "svelte";
     import ContextMenu from "./ContextMenu.svelte";
   import EllipsisButton from "./EllipsisButton.svelte";
+  import { ApiService } from "../../services/ApiService";
+  import type { AccessPoint } from "../../models/AccessPoint";
     export let city;
     export let state;
     export let address;
     export let zip;
-    export let accessPoints = [];
+    export let accessPoints:Array<number> = [];
     export let isChecked = false;
 
     let isExpanded = false;
 
+    let uniqueGroups = [];
+    let groups = [];
+    let allAccessPoints = [];
 
     var arrow = "arrow-down"
 
@@ -36,9 +42,14 @@
         isContextMenuVisible = true;
     };
 
+    onMount( async () => {
+        groups = await ApiService.getGroups()
+        allAccessPoints = await ApiService.getAccessPoints()
+        uniqueGroups = groups.filter((x) => accessPoints.includes(x.id))
+    })
 </script>
 
-<tr class="listed-item" on:contextmenu={(event) => handleRightClick(event)}> 
+<tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, null)}> 
     <td>
         <input type="checkbox" />
     </td>
@@ -52,10 +63,10 @@
         </p>
     </td>
     <td>
-        {#if accessPoints.length > 1}
+        {#if uniqueGroups.length > 1}
             Multiple Groups
         {:else}
-            {accessPoints[0].group}
+            {uniqueGroups?.[0]?.name}
         {/if}
     </td>
     <td class="arrow">
@@ -74,7 +85,7 @@
         <td class="checkbox-spacer">
             <input type="checkbox" /> 
         </td>
-        <td class="indent">{accessPoint.entrance}</td>
+        <td class="indent">{allAccessPoints[accessPoint].entrance}</td>
         <td class="fade">        
             <p>
                 {address} 
@@ -83,7 +94,7 @@
                 {city}, {state} {zip}
             </p>
         </td>
-        <td>{accessPoint.group}</td>
+        <td>{groups.filter(x => allAccessPoints[accessPoint].groups.includes(x.id)).map(x => x.name).join(", ")}</td>
         <td></td>
         <td></td>
     </tr>

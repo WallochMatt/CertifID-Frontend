@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Models"
   ],
-  "SelectedNode": "\\CertifID.sln",
+  "SelectedNode": "\\ApiEndpoints.cs",
   "PreviewInSolutionExplorer": false
 }

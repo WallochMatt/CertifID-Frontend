@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1543C5E4-C261-430E-BB50-7ED7D6801654}|CertifID.csproj|c:\\users\\skati\\documents\\certifid-folder\\certifid\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1543C5E4-C261-430E-BB50-7ED7D6801654}|CertifID.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\Group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1543C5E4-C261-430E-BB50-7ED7D6801654}|CertifID.csproj|c:\\users\\skati\\documents\\certifid-folder\\certifid\\models\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1543C5E4-C261-430E-BB50-7ED7D6801654}|CertifID.csproj|solutionrelative:models\\location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\ApiEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ApiEndpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1543C5E4-C261-430E-BB50-7ED7D6801654}|CertifID.csproj|c:\\users\\skati\\documents\\certifid-folder\\certifid\\models\\accesspoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1543C5E4-C261-430E-BB50-7ED7D6801654}|CertifID.csproj|solutionrelative:models\\accesspoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1543C5E4-C261-430E-BB50-7ED7D6801654}|CertifID.csproj|c:\\users\\skati\\documents\\certifid-folder\\certifid\\apiendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1543C5E4-C261-430E-BB50-7ED7D6801654}|CertifID.csproj|solutionrelative:apiendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\Location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Location.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1543C5E4-C261-430E-BB50-7ED7D6801654}|CertifID.csproj|c:\\users\\skati\\documents\\certifid-folder\\certifid\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1543C5E4-C261-430E-BB50-7ED7D6801654}|CertifID.csproj|solutionrelative:models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\Accesspoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Accesspoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,69 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Accesspoint.cs",
               "DocumentMoniker": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\Accesspoint.cs",
               "RelativeDocumentMoniker": "Models\\Accesspoint.cs",
               "ToolTip": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\Accesspoint.cs",
               "RelativeToolTip": "Models\\Accesspoint.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-26T20:40:03.86Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Location.cs",
               "DocumentMoniker": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\Location.cs",
               "RelativeDocumentMoniker": "Models\\Location.cs",
               "ToolTip": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\Location.cs",
               "RelativeToolTip": "Models\\Location.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAZAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-26T20:30:40.104Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Group.cs",
               "DocumentMoniker": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\Group.cs",
               "RelativeDocumentMoniker": "Models\\Group.cs",
               "ToolTip": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\Group.cs",
               "RelativeToolTip": "Models\\Group.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAZAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-26T19:54:56.529Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
               "ToolTip": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\Models\\User.cs",
               "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAHAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-26T19:54:04.288Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "ApiEndpoints.cs",
               "DocumentMoniker": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\ApiEndpoints.cs",
               "RelativeDocumentMoniker": "ApiEndpoints.cs",
               "ToolTip": "C:\\Users\\skati\\Documents\\CertifID-folder\\CertifID\\ApiEndpoints.cs",
               "RelativeToolTip": "ApiEndpoints.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAqwHoAAAAAAAAA",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-20T02:27:53.66Z",
               "EditorCaption": ""
