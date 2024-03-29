@@ -27,7 +27,10 @@
         <thead>
             <tr>
                 <th class="checkbox-spacer">
-                    <input type="checkbox" /> 
+                    <label class="container">
+                        <input type="checkbox" /> <!--bind to user? -->
+                        <span class="checkmark"></span>
+                    </label>
                 </th>
                 <th class="column-sizer">Location({locations?.length ?? 0})</th>
                 <th class="column-sizer">Address</th>

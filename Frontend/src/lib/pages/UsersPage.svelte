@@ -66,8 +66,12 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th class="checkbox-spacer custom-input">
-                    <input type="checkbox" /> <!--bind to all users? -->
+                <th class="checkbox-spacer">
+                    <!--bind to all users? -->
+                    <label class="container">
+                        <input type="checkbox" /> <!--bind to user? -->
+                        <span class="checkmark"></span>
+                    </label>
                 </th>
                 <th class="column-sizer">Users({users?.length ?? 0})</th>
                 <th class="column-sizer">Location(s)</th>
@@ -81,7 +85,10 @@
             {#each users as user, index}
                 <tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, user)}> 
                     <td class="checkbox-spacer">
-                        <input type="checkbox" /> <!--bind to user? -->
+                        <label class="container">
+                            <input type="checkbox" /> <!--bind to user? -->
+                            <span class="checkmark"></span>
+                        </label>
                     </td>
                     <td class="profile-block">
                         <!-- Come back to this with actual images -->

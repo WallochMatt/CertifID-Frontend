@@ -34,7 +34,10 @@
         <thead>
             <tr>
                 <th class="checkbox-spacer">
-                    <input type="checkbox" /> 
+                    <label class="container">
+                        <input type="checkbox" /> <!--bind to user? -->
+                        <span class="checkmark"></span>
+                    </label>
                 </th>
                 <th class="column-sizer">Group({groups?.length ?? 0})</th>
                 <th class="column-sizer">Department</th>
@@ -49,7 +52,10 @@
             {#each groups as group, index}
                 <tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, group)}> 
                     <td class="checkbox-spacer">
-                        <input type="checkbox" />
+                        <label class="container">
+                            <input type="checkbox" /> <!--bind to user? -->
+                            <span class="checkmark"></span>
+                        </label>
                     </td>
                     <td>{group.name}</td>
                     <td>{group.department}</td>

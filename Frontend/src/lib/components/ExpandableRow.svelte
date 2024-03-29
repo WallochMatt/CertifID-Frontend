@@ -49,9 +49,12 @@
     })
 </script>
 
-<tr class="listed-item" on:contextmenu={(event) => handleRightClick(event, null)}> 
-    <td>
-        <input type="checkbox" />
+<tr class="listed-item " on:contextmenu={(event) => handleRightClick(event, null)}> 
+    <td class="checkbox-spacer">
+        <label class="container">
+            <input type="checkbox" /> <!--bind to user? -->
+            <span class="checkmark"></span>
+        </label>
     </td>
     <td>{city}, {state}</td>
     <td>
@@ -70,7 +73,9 @@
         {/if}
     </td>
     <td class="arrow">
-        <button class={arrow}  on:click={dropdown}></button>
+        {#if uniqueGroups.length > 1}
+            <button class={arrow}  on:click={dropdown}></button>
+        {/if}
     </td>
     <td class="final-col">
         <EllipsisButton />
@@ -83,7 +88,10 @@
 {#each accessPoints as accessPoint}
     <tr class="expanded-location listed-item" on:contextmenu={(event) => handleRightClick(event, accessPoint)}>
         <td class="checkbox-spacer">
-            <input type="checkbox" /> 
+            <label class="container">
+                <input type="checkbox" /> <!--bind to user? -->
+                <span class="checkmark"></span>
+            </label>
         </td>
         <td class="indent">{allAccessPoints[accessPoint].entrance}</td>
         <td class="fade">        
