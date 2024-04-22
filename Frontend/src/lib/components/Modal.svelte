@@ -1,12 +1,10 @@
 <script>
-	import AddGroupForm from "./lib/forms/AddGroupForm.svelte";
-	import AddLocationForm from "./lib/forms/AddLocationForm.svelte";
-	import AddUserForm from "./lib/forms/AddUserForm.svelte";
-
+	import AddGroupForm from "../forms/AddGroupForm.svelte";
+	import AddLocationForm from "../forms/AddLocationForm.svelte";
+	import AddUserForm from "../forms/AddUserForm.svelte";
 
 	let dialog; // HTMLDialogElement
 	$: if (dialog && showModal) dialog.showModal();
-
 
 	  //Modal
 	export let showModal = false;
@@ -17,7 +15,6 @@
 			"Groups" : AddGroupForm,
 			"Locations & Access Points" : AddLocationForm
 		};
-
 </script>
 
 
@@ -35,7 +32,7 @@
 				<button on:click={() => (showModal = false)}> X </button>
 			</div>
 
-			<!-- !Slot in the content for the modal!-->
+			<!--content for the modal-->
 			<svelte:component this={modalContent[selectedContent]}/>
 			
 		</div>

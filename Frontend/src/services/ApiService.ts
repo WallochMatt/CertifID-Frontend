@@ -9,6 +9,8 @@ export interface IApiService {
     getGroups : () => Promise<Array<Group>>;
     getLocations : () => Promise<Array<Location>>;
     getAccessPoints : () => Promise<Array<AccessPoint>>;
+
+    addUser : (user: User) => Promise<void>;
 }
 
 class DatabaseData{
@@ -68,6 +70,10 @@ class MockApiService implements IApiService{
     async getAccessPoints(){
         return(await Promise.resolve(this._data.accessPoints))
     }
+
+    async addUser(user: User): Promise<void> {
+        this._data.users.push(user);
+    }
 }
 
 class RealApiService implements IApiService{
@@ -90,6 +96,7 @@ class RealApiService implements IApiService{
         let response = await fetch(`${this.baseUrl}/GetAccessPoints`)
         return(JSON.parse(`{"data": ${await response.text()} }`).data)
     }
+    
 }
 
 // export const ApiService : IApiService = Appsettings.Built ? new RealApiService() : new MockApiService()

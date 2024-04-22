@@ -13,28 +13,6 @@
     let locations = [];
     let users = [];
 
-    // api call? users will become a request -- title, group and location will likely take a numbered key
-    // let users = [
-    //     {
-    //         "firstName" : "Chris",
-    //         "lastName" : "Haliga",
-    //         "email" : "chris.haliga@certif.id",
-    //         "location" : "Milwaukee, WI",
-    //         "group" : groups[0].name,
-    //         "title" : "Software Engineer II",
-        
-    //     },
-    //     {
-    //     "firstName" : "Chad",
-    //     "lastName" : "Gouin",
-    //     "email" : "chad.gouin@certif.id",
-    //     "location" : "Hales Corners, WI",
-    //     "group" : groups[1].name, //The group's title instead
-    //     "title" : "Security Specialist",
-        
-    //     }
-    // ];
-
     let colors = ["red", "blue", "green", "pink"];
     // ^Placeholder data to be changed with backend
 

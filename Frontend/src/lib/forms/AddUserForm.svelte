@@ -1,21 +1,36 @@
 <script>
+    import { ApiService } from "../../services/ApiService";
+    import { onMount } from "svelte";
     export const header = 'Create a New User';
     export let closeModal; 
 
-    function handleSubmit() {
-        console.log("Submitted");
-        alert("Form saved!");
-        // This would make the post request
-        closeModal();
-    }
-
+    
     let title;
     let firstName;
     let lastName;
     let email
-
     let location = [];
     let group = [];
+
+    
+    function handleSubmit(user) {
+        // This would make the post request
+        ApiService.addUser(user);
+        // alert("Form saved!");
+        closeModal();
+    }
+
+
+    let groups = [];
+    let locations = [];
+    let users = [];
+
+
+    onMount( async () => {
+        users = await ApiService.getUsers();
+        groups = await ApiService.getGroups();
+        locations = await ApiService.getLocations();
+    })
 </script>
 
 <div>
@@ -26,7 +41,6 @@
     
     <form action="" method="POST" on:submit|preventDefault={handleSubmit} class="add-form" ><!--  prevent default is used to stop the page from refresh -->
         
-
         <p class="required-field">Title</p>
         <input id={title} type="text" placeholder="" bind:value={title}>
         
@@ -44,22 +58,25 @@
         
         <label for="locations">Location(s)</label>
         <select name="locations" bind:value={location}>
-            <option value="TEST 1">TEST</option>
-            <option value="TEST 2">TEST</option>
-            <option value="TEST 3">TEST</option>
+            {#each locations as location}
+                <option value={location.city}>{location.city}</option>
+            {/each}
         </select>
         
+
+        <!-- Have this open corresponding modal -->
         <small>
             <button class="create-new">Create New</button>
         </small>
         
         <label for="groups">Group(s)</label>
             <select name="groups" bind:value={group}>
-                <option value="TEST 1">TEST</option>
-                <option value="TEST 2">TEST</option>
-                <option value="TEST 3">TEST</option>
+                {#each groups as group}
+                    <option value={group.name}>{group.name}</option>
+                {/each}
             </select>
-        
+
+        <!-- Have this open corresponding modal -->
         <small>
             <button class="create-new">Create New</button>
         </small>
