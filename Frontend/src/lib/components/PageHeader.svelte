@@ -1,8 +1,24 @@
 <script>
     import Modal from "./Modal.svelte";
+    import { createEventDispatcher } from 'svelte';
+
+    let modalIsOpen = false;
+    const dispatch = createEventDispatcher();
+
+    function openModal() {
+        modalIsOpen = true;
+    }
+
+    function closeModal(){
+        modalIsOpen = false;
+    };
+
+    function handleModalClosed() {
+        dispatch('modalClosed')
+    };
 
     export let currentPage;
-    let showModal; 
+    // let showModal; 
 
     let selectedContent;
 </script>
@@ -25,12 +41,14 @@
         <input type="text" id="search" placeholder="Search">
         <div class="buttons-spacing">
             <button class="more-actions">More Actions...</button>
-            <button class="create-button" on:click={() => showModal = true}>Create +</button>
+            <button class="create-button" on:click={openModal}>Create +</button>
         </div>
     </div>
 </header>
 
-<Modal bind:showModal={showModal} selectedContent={currentPage}/>
+<Modal showModal={modalIsOpen} {closeModal} on:modalClosed={handleModalClosed} selectedContent={currentPage}/>
+
+<!-- <Modal bind:showModal={showModal} selectedContent={currentPage}/> -->
 
 <style>
     ::placeholder {

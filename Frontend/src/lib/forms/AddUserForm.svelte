@@ -1,30 +1,28 @@
 <script>
     import { ApiService } from "../../services/ApiService";
     import { onMount } from "svelte";
+    import { createEventDispatcher } from 'svelte';
+    
     export const header = 'Create a New User';
-    export let closeModal; 
 
-    
-    let title;
-    let firstName;
-    let lastName;
-    let email
-    let location = [];
-    let group = [];
+    const dispatch = createEventDispatcher();
 
-    
-    function handleSubmit(user) {
-        // This would make the post request
-        ApiService.addUser(user);
-        // alert("Form saved!");
-        closeModal();
-    }
+    let formData = {
+        title: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        location: '',
+        group: ''
+    };
 
+    function handleSubmit() {
+        dispatch('formSubmitted', formData);
+    };
 
     let groups = [];
     let locations = [];
     let users = [];
-
 
     onMount( async () => {
         users = await ApiService.getUsers();
@@ -39,25 +37,26 @@
         <hr />
     </h2>
     
-    <form action="" method="POST" on:submit|preventDefault={handleSubmit} class="add-form" ><!--  prevent default is used to stop the page from refresh -->
+    <form on:submit|preventDefault={handleSubmit} class="add-form" >
+        <!-- ^ prevent default is used to stop the page from refresh ^ -->
         
         <p class="required-field">Title</p>
-        <input id={title} type="text" placeholder="" bind:value={title}>
+        <input id={formData.title} type="text" placeholder="" bind:value={formData.title}>
         
         
         <p class="required-field">First Name</p>
-        <input type="text" placeholder="" bind:value={firstName}>
+        <input type="text" placeholder="" bind:value={formData.firstName}>
 
         <p class="required-field">Last Name</p>
-        <input type="text" placeholder="" bind:value={lastName}>
+        <input type="text" placeholder="" bind:value={formData.lastName}>
 
         
         <p class="required-field">Email</p>
-        <input id={email} type="text" placeholder="" bind:value={email}>
+        <input id={formData.email} type="text" placeholder="" bind:value={formData.email}>
         
         
         <label for="locations">Location(s)</label>
-        <select name="locations" bind:value={location}>
+        <select name="locations" bind:value={formData.location}>
             {#each locations as location}
                 <option value={location.city}>{location.city}</option>
             {/each}
@@ -70,7 +69,7 @@
         </small>
         
         <label for="groups">Group(s)</label>
-            <select name="groups" bind:value={group}>
+            <select name="groups" bind:value={formData.group}>
                 {#each groups as group}
                     <option value={group.name}>{group.name}</option>
                 {/each}
@@ -83,9 +82,7 @@
         
         <div class="modal-buttons">
             <!-- svelte-ignore a11y-autofocus -->
-            <button class="close" autofocus on:click={closeModal}>Close</button>
-            <!-- svelte-ignore a11y-autofocus -->
-            <button class="save" on:click={handleSubmit}>Save</button> 
+            <button type="submit" class="save">Save</button> 
         </div>
     </form>
 </div>

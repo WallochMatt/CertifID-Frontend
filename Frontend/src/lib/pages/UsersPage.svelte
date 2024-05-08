@@ -7,8 +7,6 @@
     import { ApiService } from "../../services/ApiService";
     import { onMount } from "svelte";
     
-    export let showModal; 
-
     let groups = [];
     let locations = [];
     let users = [];

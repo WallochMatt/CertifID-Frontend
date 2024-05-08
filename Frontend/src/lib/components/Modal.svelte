@@ -6,15 +6,22 @@
 	let dialog; // HTMLDialogElement
 	$: if (dialog && showModal) dialog.showModal();
 
-	  //Modal
+	//Modal
 	export let showModal = false;
 	export let selectedContent = "";
+	export let closeModal;
 
 	let modalContent = {
-			"Users" : AddUserForm,  
-			"Groups" : AddGroupForm,
-			"Locations & Access Points" : AddLocationForm
-		};
+		"Users" : AddUserForm,  
+		"Groups" : AddGroupForm,
+		"Locations & Access Points" : AddLocationForm
+	};
+
+
+	function handleFormSubmitted(formData){
+		console.log('Form Data: ', formData);
+		closeModal();
+	}
 </script>
 
 
@@ -29,11 +36,12 @@
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div on:click|stopPropagation>
 			<div class="modal-x">
-				<button on:click={() => (showModal = false)}> X </button>
+				<button on:click={closeModal}> X </button>
 			</div>
 
 			<!--content for the modal-->
-			<svelte:component this={modalContent[selectedContent]}/>
+			<svelte:component this={modalContent[selectedContent]} on:formSubmitted={handleFormSubmitted} />
+			<!-- <AddUserForm on:formSubmitted={handleFormSubmitted} /> -->
 			
 		</div>
 	</dialog>
