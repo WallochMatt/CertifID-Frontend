@@ -1,7 +1,10 @@
-<script>
+<script lang="ts">
     import { ApiService } from "../../services/ApiService";
     import { onMount } from "svelte";
     import { createEventDispatcher } from 'svelte';
+    import { User } from "../../models/User";
+    import { updateUserList } from "../stores/userStore";
+
     
     export const header = 'Create a New User';
 
@@ -15,10 +18,33 @@
         location: '',
         group: ''
     };
-
-    function handleSubmit() {
+    
+    
+    async function handleSubmit() {
         dispatch('formSubmitted', formData);
+        
+        const newUser: User = new User(
+            formData.firstName,
+            formData.lastName,
+            formData.email,
+            parseInt(formData.location), // Convert to integer
+            parseInt(formData.group), // Convert to integer
+            formData.title
+        );
+
+        updateUserList(newUser);
+
+        formData = {
+            title: '',
+            firstName: '',
+            lastName: '',
+            email: '',
+            location: '',
+            group: ''
+        };
+
     };
+
 
     let groups = [];
     let locations = [];
@@ -57,8 +83,8 @@
         
         <label for="locations">Location(s)</label>
         <select name="locations" bind:value={formData.location}>
-            {#each locations as location}
-                <option value={location.city}>{location.city}</option>
+            {#each locations as location, index}
+                <option value={index}>{location.city}</option>
             {/each}
         </select>
         
@@ -70,8 +96,8 @@
         
         <label for="groups">Group(s)</label>
             <select name="groups" bind:value={formData.group}>
-                {#each groups as group}
-                    <option value={group.name}>{group.name}</option>
+                {#each groups as group, index}
+                    <option value={index}>{group.name}</option>
                 {/each}
             </select>
 

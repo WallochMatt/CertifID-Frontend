@@ -10,7 +10,7 @@ export interface IApiService {
     getLocations : () => Promise<Array<Location>>;
     getAccessPoints : () => Promise<Array<AccessPoint>>;
 
-    addUser : (user: User) => Promise<void>;
+    addUser : (user: User) => Promise<User>;
 }
 
 class DatabaseData{
@@ -71,8 +71,9 @@ class MockApiService implements IApiService{
         return(await Promise.resolve(this._data.accessPoints))
     }
 
-    async addUser(user: User): Promise<void> {
+    async addUser(user: User) {
         this._data.users.push(user);
+        return await Promise.resolve(user);
     }
 }
 

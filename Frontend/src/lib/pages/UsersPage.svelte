@@ -6,12 +6,9 @@
     import EllipsisButton from "../components/EllipsisButton.svelte";
     import { ApiService } from "../../services/ApiService";
     import { onMount } from "svelte";
+    import { userStore } from "../stores/userStore"
     
-    let groups = [];
-    let locations = [];
-    let users = [];
-
-    let colors = ["red", "blue", "green", "pink"];
+    let colors = ["red", "blue", "green", "pink", "black", "teal", "red", "blue", "green", "pink", "black", "teal"];
     // ^Placeholder data to be changed with backend
 
     let contextMenuX = 0;
@@ -27,12 +24,24 @@
         isContextMenuVisible = true;
     };
 
+    let groups = [];
+    let locations = [];
+    
     onMount( async () => {
-        users = await ApiService.getUsers();
+        
+        const fetchedUsers = await ApiService.getUsers();
+        userStore.set(fetchedUsers)
+        
         groups = await ApiService.getGroups()
         locations = await ApiService.getLocations()
-    })
+    });
 
+
+    let users = [];
+    userStore.subscribe(value => {
+        users = value
+    });
+    
 </script>
 
 
