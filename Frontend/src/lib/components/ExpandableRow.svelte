@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+    import { onMount } from "svelte";
     import ContextMenu from "./ContextMenu.svelte";
-  import EllipsisButton from "./EllipsisButton.svelte";
-  import { ApiService } from "../../services/ApiService";
-  import type { AccessPoint } from "../../models/AccessPoint";
+    import EllipsisButton from "./EllipsisButton.svelte";
+    import { ApiService } from "../../services/ApiService";
+    import type { AccessPoint } from "../../models/AccessPoint";
     export let city;
     export let state;
     export let address;

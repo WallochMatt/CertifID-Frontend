@@ -23,12 +23,11 @@
         selectedItem = item;
         isContextMenuVisible = true;
     };
+    
 
     let groups = [];
     let locations = [];
-    
     onMount( async () => {
-        
         const fetchedUsers = await ApiService.getUsers();
         userStore.set(fetchedUsers)
         
@@ -86,7 +85,14 @@
                         </div>
                     </td>
                     <td>{locations[user.location]?.locationName()}</td>
-                    <td>{groups[user.group]?.name}</td>
+                    <!-- <td>{groups[user.group]?.name}</td> -->
+                    <td>
+                        {#if user.group.length > 1}
+                            Multiple Groups
+                        {:else}
+                            {groups[user.group]?.name}
+                        {/if}
+                    </td>
                     <td>{user.title}</td>
                     <td class="final-col">
                         <EllipsisButton />

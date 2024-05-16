@@ -5,18 +5,26 @@
     import ContextMenu from "../components/ContextMenu.svelte";
     import { onMount } from "svelte";
     import { ApiService } from "../../services/ApiService";
+    import { locationStore } from "../stores/locationStore";
 
-    export let showModal = false;
+    
+    onMount( async () => {
+        
+        const fetchedLocations = await ApiService.getLocations();
+        locationStore.set(fetchedLocations)
+        
+        groups = await ApiService.getGroups();
+        accessPoints = await ApiService.getAccessPoints();
+    });
+    
 
     let groups = [];
-    let locations = [];
     let accessPoints = [];
+    let locations = [];
+    locationStore.subscribe(value => {
+        locations = value
+    });
 
-    onMount( async () => {
-        groups = await ApiService.getGroups();
-        locations = await ApiService.getLocations();
-        accessPoints = await ApiService.getAccessPoints();
-    })
 </script>
 
 <main>

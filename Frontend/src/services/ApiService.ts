@@ -40,11 +40,11 @@ class DatabaseData{
         ]
 
         let users:Array<User> = [
-            new User("Matthew", "Walloch", "mattwall@cidmail.com" ,0, 0, "Software Engineer I"),
-            new User("Christian", "Haliga", "chaliga@cidmail.com" ,0, 4, "Software Engineer III"),
-            new User("Chad", "Gouin", "chadgo@cidmail.com" ,2, 2, "Security Specialist"),
-            new User("Emily", "Gouin", "emgouin@cidmail.com" ,2, 3, "Admin Trainer"),
-            new User("Andrew", "Keiser", "akkeiser@cidmail.com" ,1, 1, "HR Representative"),
+            new User("Matthew", "Walloch", "mattwall@cidmail.com" ,0, [0, 4], "Software Engineer I"),
+            new User("Christian", "Haliga", "chaliga@cidmail.com" ,0, [0, 4], "Software Engineer III"),
+            new User("Chad", "Gouin", "chadgo@cidmail.com" ,2, [2], "Security Specialist"),
+            new User("Emily", "Gouin", "emgouin@cidmail.com" ,2, [3], "Admin Trainer"),
+            new User("Andrew", "Keiser", "akkeiser@cidmail.com" ,1, [1], "HR Representative"),
 
         ]
         return new DatabaseData(users, groups, locations, accessPoints)
@@ -71,11 +71,39 @@ class MockApiService implements IApiService{
         return(await Promise.resolve(this._data.accessPoints))
     }
 
+
     async addUser(user: User) {
         this._data.users.push(user);
         return await Promise.resolve(user);
     }
+    async addGroup(group: Group) {
+        this._data.groups.push(group);
+        return await Promise.resolve(group);
+    }
+    async addLocation(location: Location) {
+        this._data.locations.push(location);
+        return await Promise.resolve(location);
+    }
+    async addAccessPoints(accessPoint: AccessPoint) {
+        this._data.accessPoints.push(accessPoint);
+        return await Promise.resolve(accessPoint);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class RealApiService implements IApiService{
     private baseUrl : string =  `${window.location.origin}/api`;
